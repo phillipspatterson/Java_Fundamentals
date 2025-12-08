@@ -24,6 +24,7 @@ public class Exercise_01 {
         int number = scanner.nextInt();
 
         // write completed code here
+        //TODO: help
 
     }
 }
