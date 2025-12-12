@@ -10,7 +10,7 @@ class CharArithDemo {
 
         ch++; // increment ch
         System.out.println("ch is now " + ch);
-
+        // TODO How does 90 make it Z?
         ch = 90; // give ch the value Z
         System.out.println("ch is now " + ch);
     }
