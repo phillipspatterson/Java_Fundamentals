@@ -30,9 +30,7 @@ public class Exercise_05 {
         System.out.println(str4);
         String str5 = str2.substring(3);
         System.out.println(str5);
-
-
-
+        // test
     }
 
 
