@@ -24,7 +24,11 @@ public class Exercise_01 {
         int number = scanner.nextInt();
 
         // write completed code here
-        //TODO: help test
-
+        //TODO: is this way correct or should I use a loop?
+        if ((number % 2) == 0){
+            System.out.println("number: " + number + " is even");
+        } else if ((number % 2) >= 0){
+            System.out.println("number: " +  number + " is odd");
+        }
     }
 }
