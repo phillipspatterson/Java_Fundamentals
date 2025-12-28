@@ -8,4 +8,12 @@ package labs_examples.conditions_loops.labs;
  */
 
 public class Exercise_08 {
+    public static void main(String[] args) {
+        int x = 1000;
+        do {
+            x -= 3;
+            System.out.println("Every third number is: " + x);
+        } while (x > 1);
+
+    }
 }
