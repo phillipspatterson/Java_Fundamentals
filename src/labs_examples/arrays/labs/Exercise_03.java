@@ -19,11 +19,13 @@ public class Exercise_03 {
 
     public static void main(String[] args) {
         int[][] twoD = new int[5][5];
-
+        int num = 0;
         for (int i = 0; i < twoD.length; i++){
             for (int j = 0; j < twoD[i].length; j++){
-                twoD[i][j] = 3 * ((i * twoD[i].length) + j + 1);;
-                System.out.print(twoD[i][j] + " ");
+               // twoD[i][j] = 3 * ((i * twoD[i].length) + j + 1);;
+               // System.out.print(twoD[i][j] + " ");
+                System.out.print(num += 3);
+                System.out.print(" ");
             }
             System.out.println();
         }
