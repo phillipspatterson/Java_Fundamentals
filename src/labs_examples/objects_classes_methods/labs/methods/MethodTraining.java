@@ -48,17 +48,18 @@ public class MethodTraining {
     }
 
     public static int countConsonants(String word){
-        int count = 0;
-        for(int i = 0; i < word.length(); i++){
-            char currentChar = word.charAt(i);
-            if (Character.isLetter(currentChar)){
-                if (currentChar != 'a' && currentChar != 'e' && currentChar != 'i'
-                        && currentChar != 'o' && currentChar != 'u') {
-                    count++;
-                }
+        //loop through each character
+        int counter = 0;
+        for (int i = 0; i < word.length(); i++){
+            //count when the character is not "a" "e" "i" "o" "u"
+            char cons = word.charAt(i);
+            if (cons != 'a' && cons != 'e' && cons != 'i' && cons != 'o' && cons != 'u'){
+                //incrementing count characters
+                counter++;
             }
         }
-        return count;
+        return counter;
+
     }
 
     public static boolean isPrime(int num){
@@ -101,12 +102,45 @@ public class MethodTraining {
 
     public static void reverseArray(int[] arr) {
         int temp;
+        //[8,7,5,9,2,4]
 
         for (int i = 0; i < arr.length / 2; i++) {
+           //save first number in array to temp variable
             temp = arr[i];
+            //
             arr[i] = arr[arr.length - 1 - i];
             arr[arr.length - 1 - i] = temp;        //
         }
     }
+
+    //return the season given an integer month
+    public static String getSeason(int month){
+        //month 9,10,11 = FALL
+        if (month < 1 || month > 12){
+            return "NOT VALID";
+        }
+        if(month >= 9 && month <= 11){
+            return "FALL";
+        } else if(month >= 12 && month <= 3){
+            return "WINTER";
+        } else if(month >= 4 && month <= 6){
+            return "SPRING";
+        } else {
+            return "SUMMER";
+        }
+    }
+
+    //given a string containing nothing but numbers return the sum
+    public static int getSumOfString(String num){
+        //loop through each index and add get the value and add the values together
+        int sum = 0;
+        for (int i = 0; i < num.length(); i++){
+            char value = num.charAt(i);
+            sum += Integer.parseInt(String.valueOf(value));
+
+        }
+        return sum;
+    }
+
 }
 
