@@ -36,23 +36,7 @@ public class AirplaneExample {
     }
 }
 
-    class Model{
-        private String modelName;
-        public Model(String modelName){
-            this.modelName = modelName;
-        }
-        public String getModelName() {
-            return modelName;
-        }
-        public void setModelName(String modelName) {
-            this.modelName = modelName;
-        }
 
-        @Override
-        public String toString() {
-            return "Model{modelName='" + modelName + "'}";
-        }
-    }
 
     class Airline{
         private String airlineName;
@@ -71,34 +55,24 @@ public class AirplaneExample {
         }
     }
 
-    class Seats{
-       private Integer numberOfSeats;
-        public Seats(Integer numberOfSeats){
-            this.numberOfSeats = numberOfSeats;
-        }
-        public Integer getNumberOfSeats(){
-            return numberOfSeats;
-        }
-        public void setNumberOfSeats(Integer numberOfSeats){
-            this.numberOfSeats = numberOfSeats;
-        }
-        @Override
-        public String toString(){
-            return "Seats{numberOfSeats ='" + numberOfSeats + "'}";
-        }
+    class Seat{
+       private boolean firstClass;
+       private boolean recline;
+       private String fabric;
+
     }
 
     class Airplane{
 
         private String color;
         private String type;
-        private Model model;
+        private String model;
         private Airline airline;
-        private Seats seats;
+        private Seat[] seats;
         private double fuelCapacity;
         private double currentFuelLevel;
 
-        public Airplane(String color, String type, Model model, Airline airline, Seats seats){
+        public Airplane(String color, String type, String model, Airline airline, Seat[] seats){
             this.color = color;
             this.type = type;
             this.model = model;
