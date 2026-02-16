@@ -1,11 +1,15 @@
-For this exercise please create two classes. The first class is the controller and it will contain the main() method.
+*/For this exercise please create two classes. The first class is the controller and it will contain the main() method.
 The second class is a POJO. Just a simple object type class that defines an object. In this POJO, demonstrate
 at least three overloaded constructors. In the main() method, create at least 3 objects of your POJO class, each using
-a different constructor.
+a different constructor.*/
 
-//create class1
+//create first class
+public class House {
     //create main()
+
         //create 3 objects each using a different constructor
-//create class2
+}
+
+//create second class
     //this is a POJO
     //demonstrate 3 overloaded constructors
