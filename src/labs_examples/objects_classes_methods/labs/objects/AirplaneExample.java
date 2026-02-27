@@ -4,34 +4,28 @@ public class AirplaneExample {
 
     public static void main(String[] args) {
 
-        Model myModel = new Model("Boeing");
         Airline myAirline = new Airline("Delta");
-        Seats numberOfSeats = new Seats(100);
-        Airplane myAirplane = new Airplane("blue", "jet", myModel, myAirline, numberOfSeats);
+        Airplane myAirplane = new Airplane("blue", "jet", "Gulfstream", myAirline, new Seat[1]);
 
         System.out.println("Color: " + myAirplane.getColor());
         System.out.println("Type: " + myAirplane.getType());
-        System.out.println("Model: " + myAirplane.getModel().getModelName());
         System.out.println("Airline: " + myAirplane.getAirline().getAirlineName());
-        System.out.println("Seats: " + myAirplane.getSeats().getNumberOfSeats());
         System.out.println("Fuel Capacity: " + myAirplane.getFuelCapacity());
         System.out.println("Current Fuel: " + myAirplane.getCurrentFuelLevel());
+        System.out.println(7);
+        System.out.println(7.5);
+        System.out.println(true);
 
         System.out.println("\n--- Using Setters ---");
         myAirplane.setColor("red");
         myAirplane.setType("propeller");
-        myAirplane.getModel().setModelName("Cessna");
         myAirplane.getAirline().setAirlineName("Southwest");
-        myAirplane.getSeats().setNumberOfSeats(50);
         myAirplane.setFuelCapacity(2000.0);
         myAirplane.setCurrentFuelLevel(1500.0);
 
         System.out.println("New Color: " + myAirplane.getColor());
-        System.out.println("New Model: " + myAirplane.getModel().getModelName());
 
-        System.out.println(myModel);
         System.out.println(myAirline);
-        System.out.println(numberOfSeats);
         System.out.println(myAirplane);
     }
 }
@@ -92,15 +86,11 @@ public class AirplaneExample {
         public double getCurrentFuelLevel() {
             return currentFuelLevel;
         }
-        public Model getModel() {
-            return model;
-        }
+
         public Airline getAirline() {
             return airline;
         }
-        public Seats getSeats() {
-            return seats;
-        }
+
 
         public void setColor(String color) {
             this.color = color;
@@ -114,14 +104,9 @@ public class AirplaneExample {
         public void setCurrentFuelLevel(double currentFuelLevel) {
             this.currentFuelLevel = currentFuelLevel;
         }
-        public void setModel(Model model) {
-            this.model = model;
-        }
+
         public void setAirline(Airline airline) {
             this.airline = airline;
-        }
-        public void setSeats(Seats seats) {
-            this.seats = seats;
         }
 
         @Override
