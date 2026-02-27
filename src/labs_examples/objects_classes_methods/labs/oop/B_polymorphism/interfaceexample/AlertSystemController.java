@@ -1,6 +1,6 @@
 package labs_examples.objects_classes_methods.labs.oop.B_polymorphism.interfaceexample;
 
-public class InterfaceDependencyController {
+public class AlertSystemController {
     public static void main(String[] args) {
 
         EmailSender email = new EmailSender();
