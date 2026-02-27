@@ -3,10 +3,17 @@ package labs_examples.objects_classes_methods.labs.oop.B_polymorphism.interfacee
 public class InterfaceDependencyController {
     public static void main(String[] args) {
 
-        AlertSystem alert = new AlertSystem(new EmailSender());
+        EmailSender email = new EmailSender();
+        AlertSystem alert = new AlertSystem(email);
         alert.triggerAlert("phillip", "Server is down!");
 
-        alert.setSender(new SMSSender());
+
+        SMSSender sms = new SMSSender();
+        alert.setSender(sms);
+        alert.triggerAlert("phillip", "Server is down!");
+
+        MicrosoftTeamsSender teams = new MicrosoftTeamsSender();
+        alert.setSender(teams);
         alert.triggerAlert("phillip", "Server is down!");
     }
 }
