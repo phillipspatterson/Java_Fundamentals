@@ -11,6 +11,7 @@ public class Hand {
         cards = new ArrayList<>();
     }
 
+
     public int calculateScore(){
         //variable to hold running total
         int total = 0;
@@ -32,4 +33,17 @@ public class Hand {
         return calculateScore() > 21;
     }
 
+    public void printHand(){
+        for (Card card : cards) {
+            if (card.cardValue == 11) {
+                System.out.println("Jack" + " " + card.cardSuit);
+            } else if (card.cardValue == 12) {
+                System.out.println("Queen" + " " + card.cardSuit);
+            } else if (card.cardValue == 13) {
+                System.out.println("King" + " " + card.cardSuit);
+            } else {
+                System.out.println(card.cardValue + " " + card.cardSuit);
+            }
+        }
+    }
 }

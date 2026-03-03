@@ -9,7 +9,7 @@ public class PolymorphismController2 {
 
         Shape circle = new Circle(5);
         Shape rectangle = new Rectangle(2.0, 4.0);
-        System.out.println("Circle Area: " + circle.getArea());
+        System.out.println("Circle Area: " + Math.round(circle.getArea() * 100.0) / 100.0);
         System.out.println("Rectangle Area: " + rectangle.getArea());
 
         Printable invoice = new Invoice();
