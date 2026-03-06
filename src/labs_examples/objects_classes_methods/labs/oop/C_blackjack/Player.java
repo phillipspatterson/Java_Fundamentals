@@ -6,6 +6,11 @@ public class Player {
     public Hand hand;
     public int potValue;
     public double startingAmount = 100.00;
+    public int currentBet;
+    public static int gamesWonByPlayer;
+    public static int gamesWonByComputer;
+    public static int gamesPlayed;
+
 
     public boolean computerAI(){
         return hand.calculateScore() < 16;

@@ -20,7 +20,8 @@ public class BlackjackController {
         player2.name = "Computer";
         player2.potValue = 100;
 
-        while (player1.potValue > 0 && player2.potValue > 0) {
+
+        while (player1.potValue > 0) {
 
             player1.hand = new Hand();
             player2.hand = new Hand();
@@ -35,14 +36,28 @@ public class BlackjackController {
             System.out.println("How much do you want to bet? (in $50 increments)");
             int bet = scanner.nextInt();
             scanner.nextLine();
-
-            while (bet > player1.potValue || bet <= 0 || bet % 50 != 0) {
+            while (bet > player1.potValue){
+                System.out.println("Insufficient funds. Would you like to deposit more money? Yes/No");
+                 String response2 = scanner.next();
+                 if (response2.equalsIgnoreCase("yes")){
+                     System.out.println("How much would you like to deposit?");
+                     int deposit = scanner.nextInt();
+                     player1.potValue += deposit;
+                 } else {
+                     System.out.println("Have a nice day. Goodbye!");
+                     return;
+                 }
+            }
+            while ( bet <= 0 || bet % 50 != 0) {
                 System.out.println("Invalid bet. Must be in $50 increments. You have $" + player1.potValue);
                 bet = scanner.nextInt();
                 scanner.nextLine();
             }
 
-            System.out.println("Your cards:");
+            player1.currentBet = bet;
+            player2.currentBet = bet;
+
+            System.out.println(player1.name + "\'s" + " cards:");
             player1.hand.printHand();
             System.out.println("Hand value: " + player1.hand.calculateScore());
 
@@ -88,40 +103,63 @@ public class BlackjackController {
                 }
             }
 
-            System.out.println(player1.name + "'s cards:");
-            player1.hand.printHand();
-            System.out.println("Hand value: " + player1.hand.calculateScore());
+            determineWinner(player1, player2);
 
-            System.out.println(player2.name + "'s cards:");
-            player2.hand.printHand();
-            System.out.println("Hand value: " + player2.hand.calculateScore());
+            System.out.println("Game over!");
+            System.out.println("=====================");
+            System.out.println("Do you want to play another game? Yes/No");
+            String response2 = scanner.nextLine();
+            Player.gamesPlayed++;
+            if (!response2.equalsIgnoreCase("yes")) {
+                break;
+            }
+        }
 
-            if (player1.hand.isOver21() && player2.hand.isOver21()) {
-                System.out.println("Both lost");
-                player1.potValue -= bet;
-                player2.potValue -= bet;
-            } else if (player1.hand.isOver21()) {
-                System.out.println("Computer Won");
-                player1.potValue -= bet;
-                player2.potValue += bet;
-            } else if (player2.hand.isOver21()) {
+        System.out.println("Games Played: " + Player.gamesPlayed);
+        System.out.println("Computer has won " + Player.gamesWonByComputer + " games");
+        System.out.println( player1.name + " has won " + Player.gamesWonByPlayer + " games");
+    }
+
+    public static void determineWinner(Player player1, Player player2){
+        System.out.println(player1.name + "'s cards:");
+        player1.hand.printHand();
+        System.out.println("Hand value: " + player1.hand.calculateScore());
+
+        System.out.println(player2.name + "'s cards:");
+        player2.hand.printHand();
+        System.out.println("Hand value: " + player2.hand.calculateScore());
+
+        if (player1.hand.isOver21() && player2.hand.isOver21()) {
+            System.out.println("Both lost");
+            player1.potValue -= player1.currentBet;
+            player2.potValue -= player2.currentBet;
+        } else if (player1.hand.isOver21()) {
+            System.out.println("Computer Won");
+            player1.potValue -= player1.currentBet;
+            player2.potValue += player2.currentBet;
+            Player.gamesWonByComputer++;
+        } else {
+            if (player2.hand.isOver21()) {
                 System.out.println(player1.name + " Won");
-                player1.potValue += bet;
-                player2.potValue -= bet;
+                player1.potValue += player1.currentBet;
+                player2.potValue -= player2.currentBet;
+                Player.gamesWonByPlayer++;
             } else if (player1.hand.calculateScore() > player2.hand.calculateScore()) {
                 System.out.println(player1.name + " Won");
-                player1.potValue += bet;
-                player2.potValue -= bet;
+                player1.potValue += player1.currentBet;
+                player2.potValue -= player2.currentBet;
+                Player.gamesWonByPlayer++;
             } else if (player2.hand.calculateScore() > player1.hand.calculateScore()) {
                 System.out.println("Computer Won");
-                player1.potValue -= bet;
-                player2.potValue += bet;
+                player1.potValue -= player1.currentBet;
+                player2.potValue += player2.currentBet;
+                Player.gamesWonByComputer++;
             } else {
                 System.out.println("Tie - no money lost");
             }
-            System.out.println(player1.name + " has $" + player1.potValue);
-            System.out.println("Computer has $" + player2.potValue);
         }
-        System.out.println("Game over!");
+        System.out.println(player1.name + " has $" + player1.potValue);
+        System.out.println("Computer has $" + player2.potValue);
+
     }
 }
