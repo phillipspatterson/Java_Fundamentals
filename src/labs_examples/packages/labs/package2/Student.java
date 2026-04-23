@@ -2,8 +2,8 @@ package labs_examples.packages.labs.package2;
 
 public class Student {
     public static String name;
-    protected int age;
-    private String studentId;
+    public int age;
+    public String studentId;
 
     public void isStudentOfAge(int age){
         this.age = age;
