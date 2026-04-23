@@ -15,10 +15,10 @@ public class Main {
         teacher.isTeacherOfAge(35);
         student.isStudentOfAge(16);
 
-        teacher.age = 35;
-        student.age = 16;
-
-        teacher.teacherId = "T001";
-        student.studentId = "S001";
+//        teacher.age = 35;
+//        student.age = 16;
+//
+//        teacher.teacherId = "T001";
+//        student.studentId = "S001";
     }
 }
